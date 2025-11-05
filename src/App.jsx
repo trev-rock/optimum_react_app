@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import './App.css'
 import sample_data from "./sample_data"
 import sample_details from "./sample_details"
 import MovieList from "./components/MovieList"
