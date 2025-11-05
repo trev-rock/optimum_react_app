@@ -3,11 +3,12 @@ import './App.css'
 import sample_data from "./sample_data"
 import sample_details from "./sample_details"
 import MovieList from "./components/MovieList"
+import MovieDetails from './components/MovieDetails'
 
 export default function App() {
   const [data, setData] = useState({})
-  const [selectedMovie, setSelectedMovie] = useState(null)
-  const [movieDetails, setMovieDetails] = useState([])
+  const [movieDetails, setMovieDetails] = useState(null)
+  const [viewDetails, setViewDetails] = useState(false)
 
   // this section of code is to be used with the api
   // useEffect(()=> {
@@ -42,16 +43,23 @@ export default function App() {
         poster: details.poster_path,
         popularity: details.popularity
       }
-      setSelectedMovie(movieDetails)
-      console.log(movieDetails)
+      setMovieDetails(movieDetails)
+      setViewDetails(true)
+      // console.log(movieDetails)
     } else {
       console.log("No details found for this movie")
     }
   }
 
+  function backToSelect() {
+    setViewDetails(false)
+  }
+
   return (
     <>
-      <MovieList movies={movies} viewMovie={viewMovie}/>
+      {!viewDetails && <MovieList movies={movies} viewMovie={viewMovie}/>}
+      {viewDetails && <MovieDetails details={movieDetails}/>}
+      {viewDetails && <div className='back-btn' onClick={backToSelect}>Back</div>}
     </>
   )
 }

@@ -7,7 +7,7 @@ export default function MovieList({ movies, viewMovie }) {
         <Movie 
         key={index} 
         movie={movie} 
-        onClick={() => viewMovie(movie)}
+        viewMovie={() => viewMovie(movie)}
         />
       ))}
     </div>

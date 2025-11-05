@@ -1,6 +1,6 @@
-export default function Movie({ movie, onClick }) {
+export default function Movie({ movie, viewMovie }) {
   return (
-    <div className='movie' onClick={onClick}>
+    <div className='movie' onClick={viewMovie}>
       {movie.title}
     </div>
   )
