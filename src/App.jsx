@@ -36,11 +36,12 @@ export default function App() {
   function viewMovie(movie){
     const details = sample_details.find(item => item.id === movie.id)
     if (details) {
+      let poster_url = `http://image.tmdb.org/t/p/w500${details.poster_path}`
       const movieDetails = {
         releaseDate: details.release_date,
         title: details.original_title,
         overview: details.overview,
-        poster: details.poster_path,
+        poster: poster_url,
         popularity: details.popularity
       }
       setMovieDetails(movieDetails)
