@@ -26,11 +26,14 @@ export default function App() {
     setData(sample_data)
   }, [])
 
-  const movies = data.results ? data.results.map(movie => ({
-    title: movie.original_title, 
-    id: movie.id,
-    backdrop: movie.backdrop_path
-  })) 
+  const movies = data.results ? data.results.map(movie => {
+    let backdrop_path = `http://image.tmdb.org/t/p/w500${movie.poster_path}`
+    return ({      
+      title: movie.original_title, 
+      id: movie.id,
+      backdrop: backdrop_path}
+    )
+  }) 
     : [];
 
   function viewMovie(movie){

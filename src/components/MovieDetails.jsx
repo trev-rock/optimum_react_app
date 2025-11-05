@@ -6,8 +6,8 @@ export default function MovieDetails({details}) {
                 <h1>{details.title}</h1>
                 <p>{details.overview}</p>
                 <div className="sub_details">
-                    <p>{details.releaseDate}</p>
-                    <p>{details.popularity}</p>
+                    <p>Released: {details.releaseDate}</p>
+                    <p>Popularity: {details.popularity}</p>
                 </div>
             </div>
         </div>

@@ -24,12 +24,16 @@ export default function Movie({ movie, viewMovie }) {
         })
     }
     return (
-    <>
-    <div className='movie' onClick={viewMovie}>
-      {movie.title} 
+    <div className="movie">
+        <div 
+            className='movie-tile' 
+            onClick={viewMovie} 
+            style={{
+                backgroundImage:`url(${movie.backdrop})`, 
+                }}>
+        </div>
+        <h2>{movie.title} </h2>
+        <div className="fav-btn" onClick={toggleFavorite}>{favorite ? "Unfavorite ★":"Favorite ☆"}</div>
     </div>
-    <div className="fav-btn" onClick={toggleFavorite}>{favorite ? "unfav":"fav"}</div>
-    {/* /* add in star to fill in */} 
-    </>
   )
 }
